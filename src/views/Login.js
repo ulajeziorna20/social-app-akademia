@@ -52,7 +52,7 @@ const Login = (props) => {
 
   return (
     <div className="login">
-      {props.user&& <Navigate to='/'/>}
+      {props.user && <Navigate to="/" />}
       <form onSubmit={handleSubmit}>
         {loginMessage && <h2>{loginMessage}</h2>}
         <input

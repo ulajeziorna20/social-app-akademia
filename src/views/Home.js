@@ -3,7 +3,7 @@ import { useEffect, useState } from "react"
 import axios from "axios"
 import Post from "../components/Post"
 
-const Home = () => {
+const Home = (props) => {
   const [posts, setPosts] = useState([])
 
   const getLatestPosts = () => {
@@ -32,7 +32,7 @@ const Home = () => {
 
   useEffect(() => {
     getLatestPosts()
-  }, [])
+  }, [props.user])
 
   return (
     <div className="home">
@@ -41,7 +41,9 @@ const Home = () => {
           return <Post post={post} key={post.id} />
         })}
       </div>
-      <button className="btn loadMore" onClick={getNextPosts}>Load more</button>
+      <button className="btn loadMore" onClick={getNextPosts}>
+        Load more
+      </button>
     </div>
   )
 }
